@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Seeram Sandeep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="description" content="Sandeep's Portfolio" />
+  <meta name="keywords" content="vcard, resposnive, retina, resume, jquery, css3, bootstrap, portfolio" />
+  <meta name="author" content="Seeram Sandeep" />
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="/bootstrap.min.css">
+  <link rel="stylesheet" href="/normalize.css">
+  <link rel="stylesheet" href="/transition-animations.css">
+  <link rel="stylesheet" href="/owl.carousel.css">
+  <link rel="stylesheet" href="/magnific-popup.css">
+  <link rel="stylesheet" href="/animate.css">
+  <link rel="stylesheet" href="/main.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Add these lines to include Bootstrap Validator and SweetAlert CSS/JS -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"
+    integrity="sha512-2hDU8/z8rTIxy/GNJNcRmwsc61/6UcvaxReA7oL4M4uNR98O8FP7ewrxMJSYn3bC2eBnHXtvMbyf//HMjybsTA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"
+    integrity="sha512-0mOAeS2YRHfQVRBDpH+HqhBR+28/ZmU2hvKo1HcACYRLL8hvwZzp/kLfVxK4v5A2C2GpQoD8+7CRhSBXJUIl/w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+
+  <!-- This styles needs for demo -->
+  <link rel="stylesheet" href="/lmpixels-demo-panel.css" type="text/css">
+  <!-- /This styles needs for demo -->
+
+  <!-- Include Custom Bootstrap CSS For Carousel -->
+  <link rel="stylesheet" href="/bootstrap-carousel.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="/jquery-2.1.3.min.js"></script>
+  <script src="/modernizr.custom.js"></script>
+
+
+</head>
+
+<body>
+  <!-- Loading animation -->
+  <div class="preloader">
+    <div class="preloader-animation">
+      <div class="dot1"></div>
+      <div class="dot2"></div>
+    </div>
+  </div>
+  <!-- /Loading animation -->
+
+  <div id="page" class="page">
+    <!-- Header -->
+    <header id="site_header" class="header">
+      <div class="my-photo">
+        <img src="/my_photo.png" alt="image">
+        <div class="mask"></div>
+      </div>
+
+      <div class="site-title-block">
+        <a href="/">
+          <h1 class="site-title">Seeram Sandeep</h1>
+        </a>
+        <!-- <p class="site-description">Web Designer</p> -->
+      </div>
+
+      <a class="menu-toggle mobile-visible">
+        <i class="fa fa-bars"></i>
+      </a>
+    </header>
+    <!-- /Header -->
+
+    <!-- Main Content -->
+    <div id="main" class="site-main">
+      <!-- Page changer wrapper -->
+      <div class="pt-wrapper">
+        <!-- Navigation & Social buttons -->
+        <div class="site-nav mobile-menu-hide">
+          <!-- Main menu -->
+          <ul id="nav" class="site-main-menu">
+            <!-- About Me Subpage link -->
+            <li>
+              <a class="pt-trigger" href="#about_me" data-animation="58" data-goto="1">About
+                me</a><!-- href value = data-id without # of .pt-page -->
+            </li>
+            <!-- /About Me Subpage link -->
+            <li>
+              <a class="pt-trigger" href="#resume" data-animation="59" data-goto="2">Resume</a>
+            </li>
+            <li>
+              <a class="pt-trigger" href="#portfolio" data-animation="60" data-goto="3">Portfolio</a>
+            </li>
+            <li>
+              <a class="pt-trigger" href="#contact" data-animation="58" data-goto="5">Contact</a>
+            </li>
+          </ul>
+          <!-- /Main menu -->
+
+          <!-- Social buttons -->
+          <ul class="social-links">
+            <li><a class="tip social-button" href="https://www.linkedin.com/in/seeramsandeeplakshmankumar/"
+                title="Twitter"><i class="fa fa-linkedin"></i></a></li>
+            <!-- Full list of social icons: http://fontawesome.io/icons/#brand -->
+            <li><a class="tip social-button" href="https://github.com/sandy3122" title="Git Hub"><i
+                  class="fa fa-github"></i></a></li>
+            <li><a class="tip social-button" href="mailto:sandeepseeram4@gmail.com" title="Email"><i
+                  class="fa fa-envelope"></i></a></li>
+            <li><a class="tip social-button" href="#" title="Portfolio"><i class="fa fa-dribbble"></i></a></li>
+            <!--<li><a class="tip social-button" href="#" title="Youtube"><i class="fa fa-youtube"></i></a></li>-->
+            <!-- <li><a class="tip social-button" href="#" title="last.fm"><i class="fa fa-lastfm"></i></a></li> -->
+          </ul>
+          <!-- /Social buttons -->
+        </div>
+        <!-- Navigation & Social buttons -->
+
+        <!-- Subpages -->
+        <div class="subpages">
+          <!-- About Me Subpage -->
+          <section class="pt-page pt-page-1" data-id="about_me">
+            <div class="section-title-block">
+              <h2 class="section-title">About Me</h2>
+              <h5 class="section-description">Full-Stack Aspirant</h5>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12 col-md-12 mobile-visible subpage-block">
+                <div class="my-photo-small">
+                  <img src="/photo_small.jpg" alt="image">
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-6 subpage-block">
+                <div class="general-info">
+                  <h3>I am Seeram Sandeep Lakshman Kumar</h3>
+                  <p>I am a dedicated Full-Stack developer with a strong passion for creating websites and web
+                    applications that excel in responsiveness and user experience. My journey in the industry has
+                    equipped me with a solid foundation in Frontend Technologies, including HTML, CSS, Bootstrap, and
+                    JavaScript. I pride myself on crafting dynamic and visually appealing web pages that adapt
+                    seamlessly across devices.</p>
+                  <p>My skill set extends to Backend Technologies, where I have expertise in MongoDB, Express.js,
+                    Node.js, Git, GitHub, and ES6. Currently, I am expanding my horizons by delving into React.js, SQL,
+                    and sharpening my proficiency in Data Structures and Algorithms. I approach each project with
+                    unwavering enthusiasm and a commitment to staying at the forefront of programming languages,
+                    frameworks, and emerging technologies.</p>
+                  <p>You can explore my portfolio and witness my dedication to excellence in code on my GitHub profile:
+                    GitHub.com/Sandy3122. I am excited about the limitless possibilities that the world of web
+                    development offers, and I look forward to contributing my expertise to future endeavors.</p>
+                </div>
+              </div>
+
+              <div class="col-sm-4 col-md-4 subpage-block">
+                <div class="block end">
+                  <ul class="info-list">
+                    <li><span class="title">Name</span><span class="value">&nbsp;&nbsp;&nbsp;Seeram Sandeep Lakshman
+                        Kumar</span></li>
+                    <li><span class="title">Age</span><span class="value">&nbsp; &nbsp;&nbsp;&nbsp;22</span></li>
+                    <li><span class="title">E-mail</span><span class="value"><a
+                          style="color: #666; text-decoration: none;"
+                          href="mailto:sandeepseeram4@gmail.com">&nbsp;&nbsp;sandeepseeram4@gmail.com</a></span></li>
+                    <li><span class="title">Phone</span><span class="value"><a
+                          style="color: #666; text-decoration: none;" href="tel:+917989175345">&nbsp;&nbsp;&nbsp;+91
+                          79891 75345</a></span></li>
+                    <li><span class="title">Freelance</span><span class="value available">Available</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-6 subpage-block">
+                <div class="block-title">
+                  <h3>Testimonials</h3>
+                </div>
+                <!-- Testimonial Section -->
+                <div id="testimonial-container" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <!-- Testimonials will be added here -->
+                  </div>
+                  <ol class="carousel-indicators">
+                    <!-- Add indicators here if needed -->
+                  </ol>
+                  <a class="carousel-control-prev" href="#testimonial-container" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#testimonial-container" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+
+                <!-- Move the buttons to the bottom -->
+                <div class="carousel-buttons">
+                  <a href="#testimonial-container" role="button" data-slide="prev"><img width="24" height="24"
+                      src="https://img.icons8.com/plumpy/24/back--v1.png" alt="back--v1" /></a>
+                  <a href="#testimonial-container" role="button" data-slide="next"><img width="24" height="24"
+                      src="https://img.icons8.com/plumpy/24/forward.png" alt="forward" /></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Services block -->
+            <div class="block-title">
+              <h3>Services</h3>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6 col-md-3 subpage-block">
+                <div class="service-block">
+                  <div class="service-info">
+                    <img src="/service/web_design.png" alt="Responsive Design">
+                    <h4>Web Design</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-3 subpage-block">
+                <div class="service-block">
+                  <div class="service-info">
+                    <img src="/service/copywrite.png" alt="Copywriter">
+                    <h4>Copywriter</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-3 subpage-block">
+                <div class="service-block">
+                  <div class="service-info">
+                    <img src="/service/ecommerce.png" alt="E-Commerce">
+                    <h4>E-Commerce</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-3 subpage-block">
+                <div class="service-block">
+                  <div class="service-info">
+                    <img src="/service/management.png" alt="Management">
+                    <h4>Management</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End of Services block -->
+
+            <!-- Testimonial Submission Form -->
+            <div class="block-title">
+              <h3>Submit Your Testimonial</h3>
+            </div>
+            <div class="testimonial-container">
+              <form id="testimonial-form" data-toggle="validator">
+                <label for="testimonial-text">Your Testimonial:</label>
+                <div class="form-group">
+                  <textarea class="form-control" id="testimonial-text" name="testimonial-text" rows="4" required
+                    placeholder="Leave Your Testimonial" data-error="Please, Give Your Testimonial"></textarea>
+                  <div id="word-count" class="text-muted">0 words</div>
+                  <div class="form-control-border"></div>
+                  <i class="form-control-icon fa fa-comment"></i>
+                  <div class="help-block with-errors"></div>
+                </div>
+                <label for="testimonial-author">Your Name:</label>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="testimonial-author" name="testimonial-author" required
+                    placeholder="Your Name" data-error="Name is Required">
+                  <div class="form-control-border"></div>
+                  <i class="form-control-icon fa fa-user"></i>
+                  <div class="help-block with-errors"></div>
+                </div>
+                <label for="testimonial-firm">Your Company:</label>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="testimonial-firm" name="testimonial-firm" required
+                    placeholder="Your Company" data-error="Your Company IS Required">
+                  <div class="form-control-border"></div>
+                  <i class="form-control-icon fa fa-building"></i>
+                  <div class="help-block with-errors"></div>
+                </div>
+                <label for="testimonial-image-input">Upload Image:</label>
+                <div class="form-group">
+                  <input type="file" class="form-control-file" id="testimonial-image-input"
+                    name="testimonial-image-input" accept="image/*" multiple="false">
+                  <label for="testimonial-image-input" id="file-label">Choose File</label>
+                  <div class="form-control-border"></div>
+                  <i class="form-control-icon fa fa-image"></i>
+                </div>
+                <div class="text-center" style="padding-top: 20px;">
+                  <button type="submit" class="button btn-send" data-disable="true">Submit Testimonial</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Fun facts block -->
+            <div class="block-title factsBlock">
+              <h3>Your Daily Motivation</h3>
+            </div>
+
+            <div class="row">
+              <div class="col-12 subpage-block">
+                <div class="fun-fact-block gray-bg">
+                  <i style="float: left" class="pe-7s-icon pe-7s-smile"></i>
+                  <h4>Today's Thought</h4>
+                  <span class="fun-value" id="thought-of-the-day"></span>
+                </div>
+              </div>
+            </div>
+            <!-- End of Fun fucts block -->
+          </section>
+          <!-- End of About Me Subpage -->
+
+          <!-- Resume Subpage -->
+          <section class="pt-page pt-page-2" data-id="resume">
+            <div class="section-title-block">
+              <h2 class="section-title">Resume</h2>
+              <h5 class="section-description">Fullstack Aspirant</h5>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6 col-md-4 subpage-block">
+                <div class="block-title">
+                  <h3>Education</h3>
+                </div>
+                <div class="timeline">
+                  <!-- Single event -->
+                  <div class="timeline-event te-primary">
+                    <h5 class="event-date">11/2020 - 05/2023</h5>
+                    <h4 class="event-name">B.TECH IN MECHANICAL ENGINEERING</h4>
+                    <span class="event-description">Aditya college of engineering and technology</span>
+                    <p>CGPA - 7.5</p>
+                  </div>
+                  <!-- Single event -->
+                  <div class="timeline-event te-primary">
+                    <h5 class="event-date">06/2016 - 04/2019</h5>
+                    <h4 class="event-name">DIPLOM IN MECHANICAL ENGINEERING</h4>
+                    <span class="event-description">Government Andhra Polytechnic, Kakinada</span>
+                    <p>Percentage- 84.74%</p>
+                  </div>
+                  <!-- Single event -->
+                  <div class="timeline-event te-primary">
+                    <h5 class="event-date">04/2015 - 05/2016</h5>
+                    <h4 class="event-name">SSC (10th)</h4>
+                    <span class="event-description">Durga Prasad Public School, Kakinada</span>
+                    <p>GPA - 9.3</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 subpage-block">
+                <div class="block-title">
+                  <h3>Experience</h3>
+                </div>
+                <div class="timeline">
+                  <!-- Single event -->
+                  <div class="timeline-event te-primary">
+                    <h5 class="event-date">05/2019 - 11/2019</h5>
+                    <h4 class="event-name">INDUSTRIAL TRAINING</h4>
+                    <span class="event-description">Rastriya Ispat Nigam LTD</span>
+                    <span class="event-description">Training</span>
+                    <p>- Six Months Industrial Training In Rashtriya Ispat Nigam Ltd.</p>
+                  </div>
+                  <!-- Single event -->
+                  <div class="timeline-event te-primary">
+                    <h5 class="event-date">03/2019 - 08/2020</h5>
+                    <h4 class="event-name">PRODUCTION TRAINEE</h4>
+                    <span class="event-description">Kia Motors India Pvt Ltd</span>
+                    <span class="event-description">Achievements/Tasks</span>
+                    <p>- Worked As Production Trainee In KIA MOTORS INDIA Pvt Ltd.</p>
+                    <p>- Tool Incharge and Safety PPE's Incharge.</p>
+                    <p>- To keep production demand on track, I worked extra shifts during
+                      peak work periods.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 subpage-block">
+                <div class="block-title">
+                  <h3>Personality Traits</h3>
+                </div>
+                <div class="skills-info">
+                  <h4 style="margin: 0 0 10px 0;">Flexible & Adaptable</h4>
+
+                  <h4 style="margin: 10px 0;">Leadership Skills</h4>
+
+                  <h4 style="margin: 10px 0;">Team Player</h4>
+
+                  <h4 style="margin: 10px 0;">Active Learner</h4>
+
+                  <h4 style="margin: 10px 0;">Self-Motivated</h4>
+
+                </div>
+
+                <div class="block-title">
+                  <h3>Technical Skills</h3>
+                </div>
+                <div class="skills-info">
+                  <h4>HML5</h4>
+                  <div class="skill-container">
+                    <div class="skill-percentage skill-5"></div>
+                  </div>
+
+                  <h4>CSS</h4>
+                  <div class="skill-container">
+                    <div class="skill-percentage skill-5"></div>
+                  </div>
+
+                  <h4>BOOTSTRAP</h4>
+                  <div class="skill-container">
+                    <div class="skill-percentage skill-6"></div>
+                  </div>
+
+                  <h4>MongoDB</h4>
+                  <div class="skill-container">
+                    <div class="skill-percentage skill-7"></div>
+                  </div>
+
+                  <h4>Express</h4>
+                  <div class="skill-container">
+                    <div class="skill-percentage skill-8"></div>
+                  </div>
+
+                  <h4>React.js</h4>
+                  <div class="skill-container">
+                    <div class="skill-percentage skill-3"></div>
+                  </div>
+
+                  <h4>Node.js</h4>
+                  <div class="skill-container">
+                    <div class="skill-percentage skill-8"></div>
+                  </div>
+
+                  <h4>Python</h4>
+                  <div class="skill-container">
+                    <div class="skill-percentage skill-8"></div>
+                  </div>
+
+                  <h4>Git</h4>
+                  <div class="skill-container">
+                    <div class="skill-percentage skill-7"></div>
+                  </div>
+
+                  <h4>GitHub</h4>
+                  <div class="skill-container">
+                    <div class="skill-percentage skill-8"></div>
+                  </div>
+
+                  <h4>SQL</h4>
+                  <div class="skill-container">
+                    <div class="skill-percentage skill-6"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <div class="download-cv-block">
+                  <a class="button" target="_blank" href="/SandeepResume.pdf" download="SandeepResume.pdf">Download
+                    CV</a>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- End Resume Subpage -->
+
+
+          <!-- Portfolio Subpage -->
+          <section class="pt-page pt-page-3" data-id="portfolio">
+            <div class="section-title-block">
+              <h2 class="section-title">Portfolio</h2>
+              <h5 class="section-description">My Best Works</h5>
+            </div>
+
+            <!-- Portfolio Content -->
+            <div class="portfolio-content">
+
+              <!-- Portfolio filter -->
+              <ul id="portfolio_filters" class="portfolio-filters">
+                <li class="active">
+                  <a class="filter btn btn-sm btn-link active" data-group="all">All</a>
+                </li>
+                <li>
+                  <a class="filter btn btn-sm btn-link" data-group="javascript">JavaScript</a>
+                </li>
+                <li>
+                  <a class="filter btn btn-sm btn-link" data-group="node.js">Node.js</a>
+                </li>
+                <li>
+                  <a class="filter btn btn-sm btn-link" data-group="bots">Bots</a>
+                </li>
+              </ul>
+              <!-- End of Portfolio filter -->
+
+              <!-- Portfolio Grid -->
+              <div id="portfolio_grid" class="portfolio-grid portfolio-masonry masonry-grid-4">
+
+                <!-- Portfolio Item 1 -->
+                <figure class="item" data-groups='["all", "node.js"]' data-website="https://taruniuday.vercel.app/">
+                  <a href="/portfolio/weddingWebsite.gif" class="lightbox lazyload"
+                    data-src="/portfolio/weddingWebsite.gif" title="Wedding Invitation Websites">
+                    <img src="/portfolio/weddingWebsite.gif" alt="">
+                    <div>
+                      <h5 class="name">Food Delivery WebSite</h5>
+                      <!-- <small>Media</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 1 -->
+
+                <!-- Portfolio Item 2 -->
+                <figure class="item" data-groups='["all", "node.js"]'
+                  data-website="https://petukji-delivery.vercel.app/">
+                  <a href="/portfolio/petukJi.gif" class="lightbox lazyload" data-src="/portfolio/petukJi.gif"
+                    title="Petuk.Ji Website">
+                    <img src="/portfolio/petukJi.gif" alt="">
+                    <div>
+                      <h5 class="name">Petuk.Ji Website</h5>
+                      <!-- <small>Video</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 2 -->
+
+                <!-- Portfolio Item 3 -->
+                <figure class="item" data-groups='["all","node.js"]'
+                  data-website="https://canvasapi-codemonk.netlify.app">
+                  <a href="/portfolio/canvaApi.gif" class="lightbox lazyload" data-src="/portfolio/canvaApi.gif"
+                    title="Canvas Api">
+                    <img src="/portfolio/canvaApi.gif" alt="">
+                    <div>
+                      <h5 class="name">Canvas Api</h5>
+                      <!-- <small>Illustration</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 3 -->
+
+                <!-- Portfolio Item 4 -->
+                <figure class="item" data-groups='["all", "node.js"]' data-website="https://flyzy-travel.vercel.app/">
+                  <a href="/portfolio/TravelBlog.gif" class="lightbox lazyload" data-src="/portfolio/TravelBlog.gif"
+                    title="Travel Blog Website">
+                    <img src="/portfolio/TravelBlog.gif" alt="">
+                    <div>
+                      <h5 class="name">Travel Blog Website</h5>
+                      <!-- <small>Media</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 4 -->
+
+                <!-- Portfolio Item 5 -->
+                <figure class="item" data-groups='["all", "node.js"]'
+                  data-website="https://github.com/Sandy3122/Curd-Api">
+                  <a href="/portfolio/crudApi.gif" class="lightbox lazyload" data-src="/portfolio/crudApi.gif"
+                    title="Crud Api">
+                    <img src="/portfolio/crudApi.gif" alt="">
+                    <div>
+                      <h5 class="name">Crud Api</h5>
+                      <!-- <small>Illustration</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 5 -->
+
+                <!-- Portfolio Item 6 -->
+                <figure class="item" data-groups='["all", "javascript"]'
+                  data-website="https://githubprofilesearch-app.netlify.app">
+                  <a href="/portfolio/githubProfileSearch.gif" class="lightbox lazyload"
+                    data-src="/portfolio/githubProfileSearch.gif" title="GitHub Profile Search">
+                    <img src="/portfolio/githubProfileSearch.gif" alt="">
+                    <div>
+                      <h5 class="name">GitHub Profile Search</h5>
+                      <!-- <small>Media</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 6 -->
+
+                <!-- Portfolio Item 7 -->
+                <figure class="item" data-groups='["all", "node.js"]'
+                  data-website="https://affection-algorithm.vercel.app/">
+                  <a href="/portfolio/DraggingPapers.gif" class="lightbox lazyload"
+                    data-src="/portfolio/DraggingPapers.gif" title="Dragging Papers">
+                    <img src="/portfolio/DraggingPapers.gif" alt="">
+                    <div>
+                      <h5 class="name">Dragging Papers</h5>
+                      <!-- <small>Video</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 7 -->
+
+                <!-- Portfolio Item 8 -->
+                <figure class="item" data-groups='["all",  "node.js"]'
+                  data-website="https://github.com/Sandy3122/Nodemailer">
+                  <a href="/portfolio/NodemailerContactForm.gif" class="lightbox lazyload"
+                    data-src="/portfolio/NodemailerContactForm.gif" title="Nodemailer Contact Form">
+                    <img src="/portfolio/NodemailerContactForm.gif" alt="">
+                    <div>
+                      <h5 class="name">Nodemailer Contact Form</h5>
+                      <!-- <small>Media</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 8 -->
+
+                <!-- Portfolio Item 9 -->
+                <figure class="item" data-groups='["all","bots"]' data-website="https://github.com/Sandy3122/EchoBot">
+                  <a href="/portfolio/echoBot.gif" class="lightbox lazyload" data-src="/portfolio/echoBot.gif"
+                    title="Echo Bot">
+                    <img src="/portfolio/echoBot.gif" alt="">
+                    <div>
+                      <h5 class="name">Echo Bot</h5>
+                      <!-- <small>Illustration</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 9 -->
+
+                <!-- Portfolio Item 10 -->
+                <figure class="item" data-groups='["all", "bots"]'
+                  data-website="https://github.com/Sandy3122/Sick-Leave-Bot">
+                  <a href="/portfolio/sickLeaveBot.gif" class="lightbox lazyload" data-src="/portfolio/sickLeaveBot.gif"
+                    title="Sick Leave Bot">
+                    <img src="/portfolio/sickLeaveBot.gif" alt="">
+                    <div>
+                      <h5 class="name">Sick Leave Bot</h5>
+                      <!-- <small>Video</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 10 -->
+
+                <!-- Portfolio Item 11 -->
+                <figure class="item" data-groups='["all","javascript"]'
+                  data-website="https://pomodoro-focus-app.netlify.app">
+                  <a href="/portfolio/pomodoroTimer.gif" class="lightbox lazyload"
+                    data-src="/portfolio/pomodoroTimer.gif" title="Pomodoro Timer">
+                    <img src="/portfolio/pomodoroTimer.gif" alt="">
+                    <div>
+                      <h5 class="name">Project Name</h5>
+                      <!-- <small>Illustration</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 11 -->
+
+                <!-- Portfolio Item 12 -->
+                <figure class="item" data-groups='["all","node.js"]'
+                  data-website="https://github.com/Sandy3122/Smakosh">
+                  <a href="/portfolio/foodDelivery.gif" class="lightbox lazyload" data-src="/portfolio/foodDelivery.gif"
+                    title="Smakosh Food Delivery">
+                    <img src="/portfolio/foodDelivery.gif" alt="">
+                    <div>
+                      <h5 class="name">Smakosh Food Delivery</h5>
+                      <!-- <small>Media</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 12 -->
+
+                <!-- Portfolio Item 13 -->
+                <figure class="item" data-groups='["all","javascript"]'
+                  data-website="https://app-qrcode-generator.netlify.app">
+                  <a href="/portfolio/qr-code.gif" class="lightbox lazyload" data-src="/portfolio/qr-code.gif"
+                    title="QR Code Generator">
+                    <img src="/portfolio/qr-code.gif" alt="">
+                    <div>
+                      <h5 class="name">QR Code Generator</h5>
+                      <!-- <small>Media</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 13 -->
+
+                <!-- Portfolio Item 14 -->
+                <figure class="item" data-groups='["all","node.js"]'
+                  data-website="https://affection-algorithm.vercel.app/">
+                  <a href="/portfolio/affectionAlgorithm.gif" class="lightbox lazyload"
+                    data-src="/portfolio/affectionAlgorithm.gif" title="Affection Algorithm">
+                    <img src="/portfolio/affectionAlgorithm.gif" alt="">
+                    <div>
+                      <h5 class="name">Affection Algorithm</h5>
+                      <!-- <small>Media</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 14 -->
+
+                <!-- Portfolio Item 15 -->
+                <figure class="item" data-groups='["all","javascript"]'
+                  data-website="https://happy-raksha-bandhan-three.vercel.app/">
+                  <a href="/portfolio/rakshaBandhan-app.gif" class="lightbox lazyload"
+                    data-src="/portfolio/rakshaBandhan-app.gif" title="Raksha Bandhan Wishes">
+                    <img src="/portfolio/rakshaBandhan-app.gif" alt="">
+                    <div>
+                      <h5 class="name">Raksha Bandhan Wishes</h5>
+                      <!-- <small>Media</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 15 -->
+
+                <!-- Portfolio Item 16 -->
+                <figure class="item" data-groups='["all","node.js"]'
+                  data-website="https://github.com/Sandy3122/Dictionary-App">
+                  <a href="/portfolio/dictionary-app.gif" class="lightbox lazyload"
+                    data-src="/portfolio/dictionary-app.gif" title="Dictionary App">
+                    <img src="/portfolio/dictionary-app.gif" alt="">
+                    <div>
+                      <h5 class="name">Dictionary App</h5>
+                      <!-- <small>Media</small> -->
+                      <i class="fa fa-link"></i>
+                    </div>
+                  </a>
+                </figure>
+                <!-- /Portfolio Item 16 -->
+              </div>
+              <!-- /Portfolio Grid -->
+
+            </div>
+            <!-- /Portfolio Content -->
+
+          </section>
+          <!-- /Portfolio Subpage -->
+
+          <!-- Blog Subpage -->
+          <section class="pt-page pt-page-4" data-id="blog">
+            <div class="section-title-block">
+            </div>
+          </section>
+          <!-- End Blog Subpage -->
+
+          <!-- Contact Subpage -->
+          <section class="pt-page pt-page-5" data-id="contact">
+            <div class="section-title-block">
+              <h2 class="section-title">Contact</h2>
+              <h5 class="section-description">Get in Touch</h5>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6 col-md-6 subpage-block">
+                <div class="block-title">
+                  <h3>Get in Touch</h3>
+                </div>
+                <p>Feel free to connect with me for collaborative opportunities and web development discussions. Let's
+                  create responsive and dynamic web experiences together!</p>
+                <div class="contact-info-block">
+                  <div class="ci-icon">
+                    <i class="pe-7s-icon pe-7s-map-marker"></i>
+                  </div>
+                  <div class="ci-text">
+                    <h5>India</h5>
+                  </div>
+                </div>
+                <div class="contact-info-block">
+                  <div class="ci-icon">
+                    <i class="pe-7s-icon pe-7s-mail"></i>
+                  </div>
+                  <div class="ci-text">
+                    <h5><a href="mailto:sandeepseeram4@gmail.com" class="" data-cfemail="">[email&#160;protected]</a>
+                    </h5>
+                  </div>
+                </div>
+                <div class="contact-info-block">
+                  <div class="ci-icon">
+                    <i class="pe-7s-icon pe-7s-call"></i>
+                  </div>
+                  <div class="ci-text">
+                    <h5><a style="color: #666; text-decoration: none;" href="tel:+917989175345">+91 79891 75345</a></h5>
+                    <!-- <h5>+123 654 78900</h5> -->
+                  </div>
+                </div>
+                <div class="contact-info-block">
+                  <div class="ci-icon">
+                    <i class="pe-7s-icon pe-7s-check"></i>
+                  </div>
+                  <div class="ci-text">
+                    <h5>Freelance Available</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-6 subpage-block">
+                <div class="block-title">
+                  <h3>Contact Form</h3>
+                </div>
+                <form id="contact-form" method="POST" action="/send">
+
+                  <div class="messages"></div>
+
+                  <div class="controls">
+                    <div class="form-group">
+                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Full Name"
+                        required="required" data-error="Name is required.">
+                      <div class="form-control-border"></div>
+                      <i class="form-control-icon fa fa-user"></i>
+                      <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group">
+                      <input id="form_email" type="email" name="email" class="form-control" placeholder="Email Address"
+                        required="required" data-error="Valid email is required.">
+                      <div class="form-control-border"></div>
+                      <i class="form-control-icon fa fa-envelope"></i>
+                      <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group">
+                      <textarea id="form_message" name="message" class="form-control" placeholder="Message for me"
+                        rows="4" required="required" data-error="Please, leave me a message."></textarea>
+                      <div class="form-control-border"></div>
+                      <i class="form-control-icon fa fa-comment"></i>
+                      <div class="help-block with-errors"></div>
+                    </div>
+
+                    <!-- <div class="g-recaptcha" data-sitekey="6LdqmCAUAAAAAMMNEZvn6g4W5e0or2sZmAVpxVqI"
+                      data-callback="correctCaptcha"></div> -->
+
+                    <input type="submit" class="button btn-send" value="Send message" id="submitBtn">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </section>
+          <!-- End Contact Subpage -->
+
+        </div>
+      </div>
+      <!-- /Page changer wrapper -->
+    </div>
+    <!-- /Main Content -->
+  </div>
+  
+</body>
+
+
+<script src="/bootstrap.min.js"></script>
+<script src="/page-transition.js"></script>
+<script src="/imagesloaded.pkgd.min.js"></script>
+<script src="/validator.js"></script>
+<script src="/jquery.shuffle.min.js"></script>
+<script src="/masonry.pkgd.min.js"></script>
+<script src="/owl.carousel.min.js"></script>
+<script src="/jquery.magnific-popup.min.js"></script>
+<script src="/jquery.hoverdir.js"></script>
+<script src="/main.js"></script>
+<script src="/testimonial.js"></script>
+<script src="/sendSms.js"></script>
+<script src="/funFacts&preloadGifs.js"></script>
+<script src="/formValidations.js"></script>
+
+<!-- Demo Color changer Script -->
+<script src="/lmpixels-demo-panel.js"></script>
+
+<!-- Include lazysizes.min.js from a CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.0/lazysizes.min.js"></script>
+
+</html>
