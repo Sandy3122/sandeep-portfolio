@@ -233,9 +233,9 @@ app.post('/send-email', (req, res) => {
 
 
 // Twilio credentials
-const accountSid = process.env.ACCOUNT-SID;
-const authToken = process.env.AUTH-TOKEN;
-const twilioPhoneNumber = process.env.TWILIO-PHONE-NUMBER;
+const accountSid = 'AC6ccab09b5721535ee336616c1f9e6bda';
+const authToken = '22f2fcc6205254b6a51124b6be1caec4';
+const twilioPhoneNumber = '+12565988773';
 
 const client = twilio(accountSid, authToken);
 
