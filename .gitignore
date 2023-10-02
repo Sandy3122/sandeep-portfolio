@@ -1,6 +1,0 @@
-node_modules
-routes
-package-lock.json
-package.json
-.gitignore
-.env
