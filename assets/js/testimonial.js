@@ -62,31 +62,32 @@ fetchAndDisplayTestimonials();
 // Function to handle file upload
 async function handleFileUpload(file) {
     try {
-      const formData = new FormData();
-      formData.append('image', file);
-  
-      const response = await fetch('/upload-image', {
-        method: 'POST',
-        body: formData,
-      });
-  
-      if (response.ok) {
-        const result = await response.json();
-        return result;
-      } else {
-        console.error('Failed to upload image:', response.status, response.statusText);
-        return null;
-      }
+        const formData = new FormData();
+        formData.append('image', file);
+
+        const response = await fetch('/upload-image', {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            return result;
+        } else {
+            console.error('Failed to upload image:', response.status, response.statusText);
+            return null;
+        }
     } catch (error) {
-      console.error('Error uploading image:', error);
-      return null;
+        console.error('Error uploading image:', error);
+        return null;
     }
 }
 
-  
-  // Handle form submission
-  const testimonialForm = document.getElementById("testimonial-form");
-  // Handle form submission
+
+// Handle form submission
+const testimonialForm = document.getElementById("testimonial-form");
+
+// Handle form submission
 testimonialForm.addEventListener("submit", async function (e) {
     e.preventDefault();
   
@@ -102,23 +103,22 @@ testimonialForm.addEventListener("submit", async function (e) {
       return;
     }
   
-    // Upload the image file and get the image URL and key
-    const { imageUrl } = await handleFileUpload(selectedFile);
-  
-    if (!imageUrl) {
-      // Handle error
-      Swal.fire("Error", "Image upload failed.", "error");
-      return;
-    }
-  
-    const newTestimonial = {
-      text: testimonialText,
-      author: testimonialAuthor,
-      firm: testimonialFirm,
-      imageUrl: imageUrl
-    };
-  
     try {
+      const { imageUrl } = await handleFileUpload(selectedFile);
+  
+      if (!imageUrl) {
+        // Handle error
+        Swal.fire("Error", "Image upload failed.", "error");
+        return;
+      }
+  
+      const newTestimonial = {
+        text: testimonialText,
+        author: testimonialAuthor,
+        firm: testimonialFirm,
+        imageUrl: imageUrl,
+      };
+  
       const response = await fetch('/submit-testimonial', {
         method: 'POST',
         headers: {
@@ -138,21 +138,23 @@ testimonialForm.addEventListener("submit", async function (e) {
       console.error('Error submitting testimonial:', error);
     }
   });
-    
-  // Add an event listener to the file input element
-  const fileInput = document.getElementById('testimonial-image-input');
-  const fileInputLabel = document.getElementById('file-label');
+
   
-  fileInput.addEventListener('change', function () {
+
+// Add an event listener to the file input element
+const fileInput = document.getElementById('testimonial-image-input');
+const fileInputLabel = document.getElementById('file-label');
+
+fileInput.addEventListener('change', function () {
     if (fileInput.files.length > 0) {
-      // Get the selected file name and display it in the label
-      const fileName = fileInput.files[0].name;
-      fileInputLabel.textContent = fileName;
+        // Get the selected file name and display it in the label
+        const fileName = fileInput.files[0].name;
+        fileInputLabel.textContent = fileName;
     } else {
-      // If no file is selected, reset the label text
-      fileInputLabel.textContent = 'Choose File';
+        // If no file is selected, reset the label text
+        fileInputLabel.textContent = 'Choose File';
     }
-  });
+});
 
 
 

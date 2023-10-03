@@ -135,12 +135,12 @@ app.post('/upload-image', upload.single('image'), async (req, res) => {
       ACL: 'public-read',
     };
 
-    const imageUrl = `https://${bucketName}.s3.ap-south-1.amazonaws.com/${objectKey}`;
-
     try {
       const uploadCommand = new PutObjectCommand(uploadParams);
       await s3Client.send(uploadCommand);
-      res.status(200).json({ message: 'Image uploaded successfully', imageUrl });
+      
+      const imageUrl = `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${objectKey}`;
+      res.status(200).json({ message: 'Image uploaded successfully', imageUrl, objectKey });
     } catch (uploadErr) {
       console.error('Error uploading image:', uploadErr);
       res.status(500).json({ message: 'Error uploading image' });
@@ -150,6 +150,7 @@ app.post('/upload-image', upload.single('image'), async (req, res) => {
     res.status(500).json({ message: 'Error uploading image' });
   }
 });
+
 
 
 
