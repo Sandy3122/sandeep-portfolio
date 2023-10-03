@@ -62,101 +62,101 @@ fetchAndDisplayTestimonials();
 // Function to handle file upload
 async function handleFileUpload(file) {
     try {
-        const formData = new FormData();
-        formData.append('image', file);
-
-        // Send the image file to the server
-        const response = await fetch('/upload-image', {
-            method: 'POST',
-            body: formData,
-        });
-
-        if (response.ok) {
-            const imageUrl = await response.json();
-            return imageUrl;
-        } else {
-            console.error('Failed to upload image:', response.status, response.statusText);
-            return null;
-        }
-    } catch (error) {
-        console.error('Error uploading image:', error);
+      const formData = new FormData();
+      formData.append('image', file);
+  
+      const response = await fetch('/upload-image', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (response.ok) {
+        const result = await response.json();
+        return result;
+      } else {
+        console.error('Failed to upload image:', response.status, response.statusText);
         return null;
+      }
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      return null;
     }
 }
 
-// Handle form submission
-const testimonialForm = document.getElementById("testimonial-form");
+  
+  // Handle form submission
+  const testimonialForm = document.getElementById("testimonial-form");
+  // Handle form submission
 testimonialForm.addEventListener("submit", async function (e) {
     e.preventDefault();
-
+  
     const testimonialText = document.getElementById("testimonial-text").value;
     const testimonialAuthor = document.getElementById("testimonial-author").value;
     const testimonialFirm = document.getElementById("testimonial-firm").value;
     const testimonialImageInput = document.getElementById("testimonial-image-input");
-
-    // Get the selected image file
+  
     const selectedFile = testimonialImageInput.files[0];
-
+  
     if (!selectedFile) {
-        Swal.fire("Submission Error", "Please fill in all the required fields.", "error");
-        return;
+      Swal.fire("Submission Error", "Please fill in all the required fields.", "error");
+      return;
     }
-
-    // Show a loading dialog
-    const loadingDialog = Swal.fire({
-        title: 'Sending Data to MongoDB',
-        html: 'Please wait...',
-        allowOutsideClick: false,
-        onBeforeOpen: () => {
-            Swal.showLoading();
-        },
-    });
-
-    // Upload the image file and get the image URL
-    const imageUrl = await handleFileUpload(selectedFile);
-
+  
+    // Upload the image file and get the image URL and key
+    const { imageUrl } = await handleFileUpload(selectedFile);
+  
     if (!imageUrl) {
-        // Close the loading dialog on error
-        loadingDialog.close();
-        return;
+      // Handle error
+      Swal.fire("Error", "Image upload failed.", "error");
+      return;
     }
-
-    // Create a new testimonial object
+  
     const newTestimonial = {
-        text: testimonialText,
-        author: testimonialAuthor,
-        firm: testimonialFirm,
-        imageUrl: imageUrl,
+      text: testimonialText,
+      author: testimonialAuthor,
+      firm: testimonialFirm,
+      imageUrl: imageUrl
     };
-
+  
     try {
-        // Send the new testimonial data to the server
-        const response = await fetch('/submit-testimonial', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newTestimonial),
-        });
-
-        if (response.ok) {
-            // Clear the form fields
-            Swal.fire("Submission Success", "Testimonial submitted successfully!", "success");
-            testimonialForm.reset();
-
-            // Fetch and display testimonials after submitting a new testimonial
-            fetchAndDisplayTestimonials();
-        } else {
-            console.error('Failed to submit testimonial:', response.status, response.statusText);
-        }
+      const response = await fetch('/submit-testimonial', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newTestimonial),
+      });
+  
+      if (response.ok) {
+        Swal.fire("Submission Success", "Testimonial submitted successfully!", "success");
+        testimonialForm.reset();
+        fetchAndDisplayTestimonials();
+      } else {
+        console.error('Failed to submit testimonial:', response.status, response.statusText);
+      }
     } catch (error) {
-        console.error('Error submitting testimonial:', error);
+      console.error('Error submitting testimonial:', error);
     }
-});
+  });
+    
+  // Add an event listener to the file input element
+  const fileInput = document.getElementById('testimonial-image-input');
+  const fileInputLabel = document.getElementById('file-label');
+  
+  fileInput.addEventListener('change', function () {
+    if (fileInput.files.length > 0) {
+      // Get the selected file name and display it in the label
+      const fileName = fileInput.files[0].name;
+      fileInputLabel.textContent = fileName;
+    } else {
+      // If no file is selected, reset the label text
+      fileInputLabel.textContent = 'Choose File';
+    }
+  });
+
 
 
 // Word Count in Testinomial
-
 // Function to update the word count and apply color based on conditions
 function updateWordCount() {
     const textarea = document.getElementById("testimonial-text");
@@ -171,7 +171,7 @@ function updateWordCount() {
     // Apply color based on word count
     if (wordCount < 20) {
         wordCountElement.style.color = 'red';
-    } else if (wordCount >= 20 && wordCount <= 40) {
+    } else if (wordCount >= 20 && wordCount <= 50) {
         wordCountElement.style.color = 'green';
     } else {
         wordCountElement.style.color = 'red';
@@ -186,28 +186,10 @@ textarea.addEventListener("focusout", function () {
 
     if (wordCount < 20) {
         swal("Error", "Testimonial should have a minimum of 20 words.", "error");
-    } else if (wordCount > 40) {
+    } else if (wordCount > 50) {
         swal("Error", "Testimonial should not exceed 40 words.", "error");
     }
 });
 
 // Call updateWordCount initially to show the initial word count
 updateWordCount();
-
-
-
-
-// Add an event listener to the file input element
-const fileInput = document.getElementById('testimonial-image-input');
-const fileInputLabel = document.getElementById('file-label');
-
-fileInput.addEventListener('change', function () {
-  if (fileInput.files.length > 0) {
-    // Get the selected file name and display it in the label
-    const fileName = fileInput.files[0].name;
-    fileInputLabel.textContent = fileName;
-  } else {
-    // If no file is selected, reset the label text
-    fileInputLabel.textContent = 'Choose File';
-  }
-});

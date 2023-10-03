@@ -1,12 +1,14 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const path = require("path");
-const mongoose = require("mongoose");
-const multer = require('multer');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const nodemailer = require('nodemailer');
-const twilio = require('twilio');
+import express from 'express';
+import bodyParser from 'body-parser';
+import path from 'path';
+import mongoose from 'mongoose';
+import multer from 'multer';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import nodemailer from 'nodemailer';
+import twilio from 'twilio';
+import { S3Client } from '@aws-sdk/client-s3';
+import { PutObjectCommand } from '@aws-sdk/client-s3';
 
 
 dotenv.config(); // To Access The Env Variables
@@ -15,26 +17,18 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 // Middleware to parse JSON in the request body
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Use the cors middleware
 app.use(cors());
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-// Configure multer to store uploaded files in a specific folder
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads/');
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname);
-  },
-});
-
-const upload = multer({ storage: storage });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Serve static assets (CSS, JavaScript, images, etc.) directly from their respective directories
 app.use(express.static(path.join(__dirname, 'assets/css')));
@@ -44,10 +38,6 @@ app.use(express.static(path.join(__dirname, 'assets/js')));
 app.use(express.static(path.join(__dirname, 'assets/preview')));
 app.use(express.static(path.join(__dirname, 'assets/resume')));
 app.use('/uploads', express.static('uploads'));
-
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
 
 // MongoDB Connection
 const mongoUrl = process.env.MONGOURL;
@@ -60,12 +50,37 @@ mongoose.connect(mongoUrl, {
   console.log("Not Connected To MongoDB Database.");
 });
 
+
+// Configure multer for storing uploaded files in memory
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+// Create an AWS S3 instance
+const s3Client = new S3Client({
+  region: process.env.AWS_REGION,
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  },
+});
+
+
+
+
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
 // Testimonial Schema
 const testimonialSchema = new mongoose.Schema({
   text: String,
   author: String,
   firm: String,
-  imageUrl: String,
+  imageUrl: {
+    type: String, // Make sure the field expects a string
+    required: true, // Adjust validation rules as needed
+  },
 });
 
 // Testimonial Model
@@ -75,6 +90,13 @@ const Testimonial = mongoose.model("Testimonial", testimonialSchema);
 app.post('/submit-testimonial', async (req, res) => {
   try {
     const { text, author, firm, imageUrl } = req.body;
+
+    console.log(req.body)
+
+    // Check if imageUrl is available in the request body
+    if (!req.body.imageUrl) {
+      return res.status(400).json({ message: 'Image URL is missing' });
+    }
 
     // Create a new testimonial document
     const testimonial = new Testimonial({
@@ -94,20 +116,78 @@ app.post('/submit-testimonial', async (req, res) => {
   }
 });
 
+
 // Route to handle image uploads
-app.post('/upload-image', upload.single('image'), (req, res) => {
+app.post('/upload-image', upload.single('image'), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ message: 'No file uploaded' });
     }
 
-    const imageUrl = `/uploads/${req.file.filename}`;
-    res.status(200).json(imageUrl);
+    const bucketName = process.env.AWS_BUCKET_NAME;
+    const objectKey = `${Date.now()}-${req.file.originalname}`;
+
+    const uploadParams = {
+      Bucket: bucketName,
+      Key: objectKey,
+      Body: req.file.buffer,
+      ContentType: req.file.mimetype,
+      ACL: 'public-read',
+    };
+
+    const imageUrl = `https://${bucketName}.s3.ap-south-1.amazonaws.com/${objectKey}`;
+
+    try {
+      const uploadCommand = new PutObjectCommand(uploadParams);
+      await s3Client.send(uploadCommand);
+      res.status(200).json({ message: 'Image uploaded successfully', imageUrl });
+    } catch (uploadErr) {
+      console.error('Error uploading image:', uploadErr);
+      res.status(500).json({ message: 'Error uploading image' });
+    }
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error uploading image' });
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Route to get testimonials from the database and send them as JSON
 app.get('/get-testimonials', async (req, res) => {
@@ -278,6 +358,7 @@ app.post('/send-sms', async (req, res) => {
     res.status(500).json({ message: 'Error sending SMS' });
   }
 });
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
