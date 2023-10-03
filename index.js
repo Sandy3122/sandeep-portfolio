@@ -93,6 +93,18 @@ const s3Client = new S3Client({
 app.get('/', (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
+app.get('/about', (req, res) => {
+  res.sendFile(__dirname + "/index.html/#about_me");
+});
+app.get('/resume', (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+app.get('/portfolio', (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+app.get('/contact', (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
 
 // Testimonial Schema
 const testimonialSchema = new mongoose.Schema({
