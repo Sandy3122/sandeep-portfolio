@@ -72,15 +72,21 @@ async function handleFileUpload(file) {
 
         if (response.ok) {
             const result = await response.json();
+            // Display a success message
+            Swal.fire('Success', 'Image uploaded successfully', 'success');
             return result;
         } else {
-            const errorMessage = await response.text(); // Get the error message from the response body
+            const errorMessage = await response.text();
             console.error('Failed to upload image:', response.status, response.statusText);
             console.error('Error details:', errorMessage);
+            // Display an error message
+            Swal.fire('Error', 'Image upload failed', 'error');
             return null;
         }
     } catch (error) {
         console.error('Error uploading image:', error);
+        // Display an error message
+        Swal.fire('Error', 'Image upload failed', 'error');
         return null;
     }
 }

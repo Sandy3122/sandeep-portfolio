@@ -11,6 +11,12 @@ import { S3Client } from '@aws-sdk/client-s3';
 import { PutObjectCommand } from '@aws-sdk/client-s3';
 
 
+const AWS_ACCESS_KEY_ID = 'AKIAYFW5K4A3EFH3JZY4';
+const AWS_SECRET_ACCESS_KEY = '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'
+const AWS_REGION = 'ap-south-1'
+const AWS_BUCKET_NAME = 'seeramsandeep-portfolio'
+
+
 dotenv.config(); // To Access The Env Variables
 
 const app = express();
@@ -64,11 +70,19 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 // Create an AWS S3 instance
+// const s3Client = new S3Client({
+//   region: process.env.AWS_REGION,
+//   credentials: {
+//     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+//     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+//   },
+// });
+
 const s3Client = new S3Client({
-  region: process.env.AWS_REGION,
+  region: process.env.AWS_REGION || AWS_REGION,
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID || AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || AWS_SECRET_ACCESS_KEY,
   },
 });
 
@@ -97,6 +111,7 @@ const Testimonial = mongoose.model("Testimonial", testimonialSchema);
 // Route to handle form submission
 app.post('/submit-testimonial', async (req, res) => {
   try {
+    console.log('submit restinomial route')
     const { text, author, firm, imageUrl } = req.body;
 
     console.log(req.body)
@@ -132,8 +147,11 @@ app.post('/upload-image', upload.single('image'), async (req, res) => {
       return res.status(400).json({ message: 'No file uploaded' });
     }
 
-    const bucketName = process.env.AWS_BUCKET_NAME;
+    const bucketName = process.env.AWS_BUCKET_NAME || AWS_BUCKET_NAME;
     const objectKey = `${Date.now()}-${req.file.originalname}`;
+    
+    // Use the correct S3 endpoint for your AWS region
+    const s3Endpoint = `https://${bucketName}.s3.${process.env.AWS_REGION || AWS_REGION}.amazonaws.com`;
 
     const uploadParams = {
       Bucket: bucketName,
@@ -146,9 +164,9 @@ app.post('/upload-image', upload.single('image'), async (req, res) => {
     try {
       const uploadCommand = new PutObjectCommand(uploadParams);
       await s3Client.send(uploadCommand);
-      
-      const imageUrl = `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${objectKey}`;
-      console.log(`ImageUrl : ${imageUrl}`)
+
+      const imageUrl = `${s3Endpoint}/${objectKey}`;
+      console.log(`ImageUrl: ${imageUrl}`);
       res.status(200).json({ message: 'Image uploaded successfully', imageUrl, objectKey });
     } catch (uploadErr) {
       console.error('Error uploading image:', uploadErr);
@@ -159,6 +177,7 @@ app.post('/upload-image', upload.single('image'), async (req, res) => {
     res.status(500).json({ message: 'Error uploading image' });
   }
 });
+
 
 
 
