@@ -74,7 +74,9 @@ async function handleFileUpload(file) {
             const result = await response.json();
             return result;
         } else {
+            const errorMessage = await response.text(); // Get the error message from the response body
             console.error('Failed to upload image:', response.status, response.statusText);
+            console.error('Error details:', errorMessage);
             return null;
         }
     } catch (error) {
@@ -82,6 +84,7 @@ async function handleFileUpload(file) {
         return null;
     }
 }
+
 
 
 // Handle form submission
@@ -187,9 +190,9 @@ textarea.addEventListener("focusout", function () {
     const wordCount = textarea.value.split(/\s+/).filter(word => word !== "").length;
 
     if (wordCount < 20) {
-        swal("Error", "Testimonial should have a minimum of 20 words.", "error");
+        Swal.fire("Error", "Testimonial should have a minimum of 20 words.", "error");
     } else if (wordCount > 50) {
-        swal("Error", "Testimonial should not exceed 40 words.", "error");
+        Swal.fire("Error", "Testimonial should not exceed 50 words.", "error");
     }
 });
 

@@ -21,7 +21,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Use the cors middleware
-app.use(cors());
+const corsOptions = {
+  origin: 'https://seeramsandeep.vercel.app/', // Replace with your Vercel app URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
+
 
 
 import { fileURLToPath } from 'url';
@@ -140,6 +148,7 @@ app.post('/upload-image', upload.single('image'), async (req, res) => {
       await s3Client.send(uploadCommand);
       
       const imageUrl = `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${objectKey}`;
+      console.log(`ImageUrl : ${imageUrl}`)
       res.status(200).json({ message: 'Image uploaded successfully', imageUrl, objectKey });
     } catch (uploadErr) {
       console.error('Error uploading image:', uploadErr);
