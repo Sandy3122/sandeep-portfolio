@@ -180,44 +180,6 @@ app.post('/upload-image', upload.single('image'), async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Route to get testimonials from the database and send them as JSON
 app.get('/get-testimonials', async (req, res) => {
   try {
