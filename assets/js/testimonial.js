@@ -38,29 +38,29 @@ function addTestimonialToCarousel(testimonial, isFirst) {
 // Function to fetch and display testimonials
 async function fetchAndDisplayTestimonials() {
     try {
-      const response = await fetch('/get-testimonials');
-      
-      if (!response.ok) {
-        console.error('Failed to fetch testimonials:', response.status, response.statusText);
-        console.log('Failed to fetch testimonials. Please try again later.')
-        return;
-      }
-      
-      const testimonials = await response.json();
-      
-      // Clear the existing testimonials
-      const testimonialContainer = document.querySelector("#testimonial-container .carousel-inner");
-      testimonialContainer.innerHTML = "";
-      
-      // Add testimonials to the carousel
-      testimonials.forEach((testimonial, index) => {
-        addTestimonialToCarousel(testimonial, index === 0);
-      });
+        const response = await fetch('/get-testimonials');
+
+        if (!response.ok) {
+            console.error('Failed to fetch testimonials:', response.status, response.statusText);
+            console.log('Failed to fetch testimonials. Please try again later.')
+            return;
+        }
+
+        const testimonials = await response.json();
+
+        // Clear the existing testimonials
+        const testimonialContainer = document.querySelector("#testimonial-container .carousel-inner");
+        testimonialContainer.innerHTML = "";
+
+        // Add testimonials to the carousel
+        testimonials.forEach((testimonial, index) => {
+            addTestimonialToCarousel(testimonial, index === 0);
+        });
     } catch (error) {
-      console.error(error);
-      console.log('An error occurred while fetching testimonials. Please try again later.')
+        console.error(error);
+        console.log('An error occurred while fetching testimonials. Please try again later.')
     }
-  }
+}
 
 fetchAndDisplayTestimonials();
 
@@ -107,56 +107,60 @@ const testimonialForm = document.getElementById("testimonial-form");
 // Handle form submission
 testimonialForm.addEventListener("submit", async function (e) {
     e.preventDefault();
-  
+
     const testimonialText = document.getElementById("testimonial-text").value;
     const testimonialAuthor = document.getElementById("testimonial-author").value;
     const testimonialFirm = document.getElementById("testimonial-firm").value;
     const testimonialImageInput = document.getElementById("testimonial-image-input");
-  
-    const selectedFile = testimonialImageInput.files[0];
-  
-    if (!selectedFile) {
-      Swal.fire("Submission Error", "Please fill in all the required fields.", "error");
-      return;
-    }
-  
-    try {
-      const { imageUrl } = await handleFileUpload(selectedFile);
-  
-      if (!imageUrl) {
-        // Handle error
-        Swal.fire("Error", "Image upload failed.", "error");
-        return;
-      }
-  
-      const newTestimonial = {
-        text: testimonialText,
-        author: testimonialAuthor,
-        firm: testimonialFirm,
-        imageUrl: imageUrl,
-      };
-  
-      const response = await fetch('/submit-testimonial', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newTestimonial),
-      });
-  
-      if (response.ok) {
-        Swal.fire("Submission Success", "Testimonial submitted successfully!", "success");
-        testimonialForm.reset();
-        fetchAndDisplayTestimonials();
-      } else {
-        console.error('Failed to submit testimonial:', response.status, response.statusText);
-      }
-    } catch (error) {
-      console.error('Error submitting testimonial:', error);
-    }
-  });
 
-  
+    const selectedFile = testimonialImageInput.files[0];
+
+    if (!testimonialText || !testimonialAuthor || !testimonialFirm) {
+        Swal.fire("Submission Error", "Please fill in all the required fields.", "error");
+        return;
+    }
+    else if (!selectedFile) {
+        Swal.fire("Image Upload Error", "Please upload the image.", "error");
+        return;
+    }
+
+    try {
+        const { imageUrl } = await handleFileUpload(selectedFile);
+
+        if (!imageUrl) {
+            // Handle error
+            Swal.fire("Error", "Image upload failed.", "error");
+            return;
+        }
+
+        const newTestimonial = {
+            text: testimonialText,
+            author: testimonialAuthor,
+            firm: testimonialFirm,
+            imageUrl: imageUrl,
+        };
+
+        const response = await fetch('/submit-testimonial', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newTestimonial),
+        });
+
+        if (response.ok) {
+            Swal.fire("Submission Success", "Testimonial submitted successfully!", "success");
+            testimonialForm.reset();
+            fetchAndDisplayTestimonials();
+        } else {
+            console.error('Failed to submit testimonial:', response.status, response.statusText);
+        }
+    } catch (error) {
+        console.error('Error submitting testimonial:', error);
+    }
+});
+
+
 
 // Add an event listener to the file input element
 const fileInput = document.getElementById('testimonial-image-input');
@@ -202,11 +206,17 @@ const textarea = document.getElementById("testimonial-text");
 textarea.addEventListener("input", updateWordCount);
 textarea.addEventListener("focusout", function () {
     const wordCount = textarea.value.split(/\s+/).filter(word => word !== "").length;
+    const wordCountElement = document.getElementById("word-count");
+
 
     if (wordCount < 20) {
-        Swal.fire("Error", "Testimonial should have a minimum of 20 words.", "error");
+        wordCountElement.style.color = "red",
+        wordCountElement.innerHTML = "Testimonial should have a minimum of 20 words."
+        // Swal.fire("Error", "Testimonial should have a minimum of 20 words.", "error");
     } else if (wordCount > 50) {
-        Swal.fire("Error", "Testimonial should not exceed 50 words.", "error");
+        wordCountElement.style.color = "red",
+        wordCountElement.innerHTML = "Testimonial should not exceed 50 words."
+        // Swal.fire("Error", "Testimonial should not exceed 50 words.", "error");
     }
 });
 
