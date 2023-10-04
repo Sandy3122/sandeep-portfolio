@@ -38,11 +38,11 @@ function addTestimonialToCarousel(testimonial, isFirst) {
 // Function to fetch and display testimonials
 async function fetchAndDisplayTestimonials() {
     try {
-        const response = await fetch('/get-testimonials');
+        const response = await fetch('/get-testimonials', { timeout: 10000 }); // Add a timeout of 10 seconds
 
         if (!response.ok) {
             console.error('Failed to fetch testimonials:', response.status, response.statusText);
-            console.log('Failed to fetch testimonials. Please try again later.')
+            console.log('Failed to fetch testimonials. Please try again later.');
             return;
         }
 
@@ -58,7 +58,7 @@ async function fetchAndDisplayTestimonials() {
         });
     } catch (error) {
         console.error(error);
-        console.log('An error occurred while fetching testimonials. Please try again later.')
+        console.log('An error occurred while fetching testimonials. Please try again later.');
     }
 }
 
