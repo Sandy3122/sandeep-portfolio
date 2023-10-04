@@ -65,7 +65,7 @@ async function fetchAndDisplayTestimonials() {
 fetchAndDisplayTestimonials();
 
 // Call the function to fetch and display testimonials when the page loads
-//   window.addEventListener('load', fetchAndDisplayTestimonials);
+// window.addEventListener('load', fetchAndDisplayTestimonials);
 
 // Function to handle file upload
 async function handleFileUpload(file) {
@@ -103,7 +103,6 @@ async function handleFileUpload(file) {
 
 // Handle form submission
 const testimonialForm = document.getElementById("testimonial-form");
-
 // Handle form submission
 testimonialForm.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -125,6 +124,16 @@ testimonialForm.addEventListener("submit", async function (e) {
     }
 
     try {
+        // Show loading animation while submitting
+        Swal.fire({
+            title: 'Submitting Your Testinomial Form',
+            allowOutsideClick: false,
+            onBeforeOpen: () => {
+                Swal.showLoading();
+            },
+        });
+
+
         const { imageUrl } = await handleFileUpload(selectedFile);
 
         if (!imageUrl) {
@@ -149,6 +158,10 @@ testimonialForm.addEventListener("submit", async function (e) {
         });
 
         if (response.ok) {
+            // Reset the file input and label text
+            fileInput.value = '';
+            fileInputLabel.textContent = 'Choose File';
+
             Swal.fire("Submission Success", "Testimonial submitted successfully!", "success");
             testimonialForm.reset();
             fetchAndDisplayTestimonials();
