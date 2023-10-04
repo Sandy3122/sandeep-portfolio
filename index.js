@@ -10,13 +10,6 @@ import twilio from 'twilio';
 import { S3Client } from '@aws-sdk/client-s3';
 import { PutObjectCommand } from '@aws-sdk/client-s3';
 
-
-const AWS_ACCESS_KEY_ID = 'AKIAYFW5K4A3EFH3JZY4';
-const AWS_SECRET_ACCESS_KEY = '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'
-const AWS_REGION = 'ap-south-1'
-const AWS_BUCKET_NAME = 'seeramsandeep-portfolio'
-
-
 dotenv.config(); // To Access The Env Variables
 
 const app = express();
@@ -35,7 +28,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
 
 
 import { fileURLToPath } from 'url';
@@ -69,15 +61,6 @@ mongoose.connect(mongoUrl, {
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-// Create an AWS S3 instance
-// const s3Client = new S3Client({
-//   region: process.env.AWS_REGION,
-//   credentials: {
-//     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-//     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-//   },
-// });
-
 const s3Client = new S3Client({
   region: process.env.AWS_REGION || AWS_REGION,
   credentials: {
@@ -85,10 +68,6 @@ const s3Client = new S3Client({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || AWS_SECRET_ACCESS_KEY,
   },
 });
-
-
-
-
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + "/index.html");
@@ -107,18 +86,7 @@ app.get('/contact', (req, res) => {
 });
 
 // Testimonial Schema
-const testimonialSchema = new mongoose.Schema({
-  text: String,
-  author: String,
-  firm: String,
-  imageUrl: {
-    type: String, // Make sure the field expects a string
-    required: true, // Adjust validation rules as needed
-  },
-});
-
-// Testimonial Model
-const Testimonial = mongoose.model("Testimonial", testimonialSchema);
+import Testimonial from './modal/testimonialSchema.cjs'; // Make sure to use the correct path
 
 // Route to handle form submission
 app.post('/submit-testimonial', async (req, res) => {
@@ -150,7 +118,6 @@ app.post('/submit-testimonial', async (req, res) => {
     res.status(500).json({ message: 'Error submitting testimonial' });
   }
 });
-
 
 // Route to handle image uploads
 app.post('/upload-image', upload.single('image'), async (req, res) => {
@@ -189,8 +156,6 @@ app.post('/upload-image', upload.single('image'), async (req, res) => {
     res.status(500).json({ message: 'Error uploading image' });
   }
 });
-
-
 
 // Route to get testimonials from the database and send them as JSON
 app.get('/get-testimonials', async (req, res) => {
