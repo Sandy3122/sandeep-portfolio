@@ -221,7 +221,7 @@ app.post("/send-email", (req, res) => {
       color: white;
       font-size: 24px;
       font-weight: bold;
-      text-align: center;
+      text-align : center;
       padding: 20px;
       border-radius: 0;
     }
