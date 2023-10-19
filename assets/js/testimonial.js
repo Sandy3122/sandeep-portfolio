@@ -103,7 +103,7 @@ async function handleFileUpload(file) {
 
 // Handle form submission
 const testimonialForm = document.getElementById("testimonial-form");
-// Handle form submission
+
 testimonialForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -123,17 +123,16 @@ testimonialForm.addEventListener("submit", async function (e) {
         return;
     }
 
+    // Show loading animation while submitting
+    Swal.fire({
+        title: 'Submitting Your Testimonial Form',
+        allowOutsideClick: false,
+        onBeforeOpen: () => {
+            Swal.showLoading();
+        },
+    });
+
     try {
-        // Show loading animation while submitting
-        Swal.fire({
-            title: 'Submitting Your Testinomial Form',
-            allowOutsideClick: false,
-            onBeforeOpen: () => {
-                Swal.showLoading();
-            },
-        });
-
-
         const { imageUrl } = await handleFileUpload(selectedFile);
 
         if (!imageUrl) {
@@ -224,11 +223,11 @@ textarea.addEventListener("focusout", function () {
 
     if (wordCount < 20) {
         wordCountElement.style.color = "red",
-        wordCountElement.innerHTML = "Testimonial should have a minimum of 20 words."
+            wordCountElement.innerHTML = "Testimonial should have a minimum of 20 words."
         // Swal.fire("Error", "Testimonial should have a minimum of 20 words.", "error");
     } else if (wordCount > 50) {
         wordCountElement.style.color = "red",
-        wordCountElement.innerHTML = "Testimonial should not exceed 50 words."
+            wordCountElement.innerHTML = "Testimonial should not exceed 50 words."
         // Swal.fire("Error", "Testimonial should not exceed 50 words.", "error");
     }
 });
