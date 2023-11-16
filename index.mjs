@@ -50,6 +50,7 @@ mongoose
   .connect(mongoUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    maxPoolSize: 15,
   })
   .then(() => {
     console.log("Successfully Connected To MongoDB Database.");
@@ -87,7 +88,7 @@ app.get("/contact", (req, res) => {
 });
 
 // Testimonial Schema
-import Testimonial from "./modal/testimonialSchema.cjs"; // Make sure to use the correct path
+import Testimonial from "./modal/testimonialSchema.cjs";
 
 // Route to handle form submission
 app.post("/submit-testimonial", async (req, res) => {
