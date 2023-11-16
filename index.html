@@ -6,13 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Seeram Sandeep Digital Resume</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <meta name="description" content="Explore Seeram Sandeep's portfolio, showcasing web development projects and skills.">
+  <meta name="description"
+    content="Explore Seeram Sandeep's portfolio, showcasing web development projects and skills.">
   <meta name="keywords" content="web development, portfolio, projects, Sandeep Kumar">
   <meta name="author" content="Sandeep Kumar">
 
   <!-- Open Graph (OG) meta tags for social media sharing -->
   <meta property="og:title" content="Seeram Sandeep Digital Resume">
-  <meta property="og:description" content="Explore Seeram Sandeep's portfolio, showcasing web development projects and skills.">
+  <meta property="og:description"
+    content="Explore Seeram Sandeep's portfolio, showcasing web development projects and skills.">
   <meta property="og:image" content="https://i.ibb.co/bHkRKfw/my-photo.png">
   <meta property="og:url" content="https://seeramsandeep.vercel.app">
   <meta property="og:type" content="website">
@@ -102,12 +104,12 @@
 
 <body>
   <!-- Loading animation -->
-  <div class="preloader">
+  <!-- <div class="preloader">
     <div class="preloader-animation">
       <div class="dot1"></div>
       <div class="dot2"></div>
     </div>
-  </div>
+  </div> -->
   <!-- /Loading animation -->
 
   <div id="page" class="page">
@@ -207,25 +209,25 @@
                 </div>
               </div>
 
-                <div class="col-sm-6 col-md-6 subpage-block">
-                  <div class="block-title">
-                    <h3>Personal Information</h3>
-                  </div>
-                  <div class="block end">
-                    <ul class="info-list">
-                      <li><span class="title">Name</span><span class="value">&nbsp;&nbsp;&nbsp;Seeram Sandeep Lakshman
-                          Kumar</span></li>
-                      <li><span class="title">Age</span><span class="value">&nbsp; &nbsp;&nbsp;&nbsp;22</span></li>
-                      <li><span class="title">E-mail</span><span class="value"><a
-                            style="color: #666; text-decoration: none;"
-                            href="mailto:sandeepseeram4@gmail.com">&nbsp;&nbsp;sandeepseeram4@gmail.com</a></span></li>
-                      <li><span class="title">Phone</span><span class="value"><a
-                            style="color: #666; text-decoration: none;" href="tel:+917989175345">&nbsp;&nbsp;&nbsp;+91
-                            79891 75345</a></span></li>
-                      <li><span class="title">Freelance</span><span class="value available">Available</span></li>
-                    </ul>
-                  </div>
+              <div class="col-sm-6 col-md-6 subpage-block">
+                <div class="block-title">
+                  <h3>Personal Information</h3>
                 </div>
+                <div class="block end">
+                  <ul class="info-list">
+                    <li><span class="title">Name</span><span class="value">&nbsp;&nbsp;&nbsp;Seeram Sandeep Lakshman
+                        Kumar</span></li>
+                    <li><span class="title">Age</span><span class="value">&nbsp; &nbsp;&nbsp;&nbsp;22</span></li>
+                    <li><span class="title">E-mail</span><span class="value"><a
+                          style="color: #666; text-decoration: none;"
+                          href="mailto:sandeepseeram4@gmail.com">&nbsp;&nbsp;sandeepseeram4@gmail.com</a></span></li>
+                    <li><span class="title">Phone</span><span class="value"><a
+                          style="color: #666; text-decoration: none;" href="tel:+917989175345">&nbsp;&nbsp;&nbsp;+91
+                          79891 75345</a></span></li>
+                    <li><span class="title">Freelance</span><span class="value available">Available</span></li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <div class="row">
@@ -530,7 +532,8 @@
                   <span class="event-description">12/2022 - 02/2023</span>
                   <span class="event-description">
                     <ul class="event-points">
-                      <li>The technology stack used for this project includes HTML, CSS, Bootstrap, JavaScript, Express.js, Node.js, and version control through Git and GitHub.</li>
+                      <li>The technology stack used for this project includes HTML, CSS, Bootstrap, JavaScript,
+                        Express.js, Node.js, and version control through Git and GitHub.</li>
                       <li>All web pages and the frontend are optimized for mobile-friendly</li>
                       <li>Node-mailer module was utilized to send wishes and messages via email.</li>
                       <li>Google Calendars are integrated to provide notifications one day before events.</li>
@@ -563,7 +566,7 @@
                   <span class="event-description">06/2022 - 04/2023</span>
                 </div>
 
-                
+
 
               </div>
 
@@ -589,305 +592,276 @@
               <h5 class="section-description">My Best Works</h5>
             </div>
 
-            <!-- Portfolio Content -->
-            <div class="portfolio-content">
+            <!-- Portfolio Grid --> 
+            <div id="portfolio_grid" class="portfolio-grid portfolio-masonry masonry-grid-4">
 
-              <!-- Portfolio filter -->
-              <ul id="portfolio_filters" class="portfolio-filters">
-                <li class="active">
-                  <a class="filter btn btn-sm btn-link active" data-group="all">All</a>
-                </li>
-                <li>
-                  <a class="filter btn btn-sm btn-link" data-group="javascript">JavaScript</a>
-                </li>
-                <li>
-                  <a class="filter btn btn-sm btn-link" data-group="node.js">Node.js</a>
-                </li>
-                <li>
-                  <a class="filter btn btn-sm btn-link" data-group="bots">Bots</a>
-                </li>
-              </ul>
-              <!-- End of Portfolio filter -->
+              <!-- Portfolio Item 1 -->
+              <figure class="item" data-groups='["all", "node.js"]' data-website="https://taruniuday.vercel.app/">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/weddingWebsite.gif"
+                  class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/weddingWebsite.gif"
+                  title="Wedding Invitation Websites">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/weddingWebsite.gif" alt=""
+                    loading="lazy">
+                  <div>
+                    <h5 class="name">Food Delivery WebSite</h5>
+                    <!-- <small>Media</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 1 -->
 
-              <!-- Portfolio Grid -->
-              <div id="portfolio_grid" class="portfolio-grid portfolio-masonry masonry-grid-4">
+              <!-- Portfolio Item 2 -->
+              <figure class="item" data-groups='["all", "node.js"]' data-website="https://petukji-delivery.vercel.app/">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/petukJi.gif" class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/petukJi.gif" title="Petuk.Ji Website">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/petukJi.gif" alt="" loading="lazy">
+                  <div>
+                    <h5 class="name">Petuk.Ji Website</h5>
+                    <!-- <small>Video</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 2 -->
 
-                <!-- Portfolio Item 1 -->
-                <figure class="item" data-groups='["all", "node.js"]' data-website="https://taruniuday.vercel.app/">
-                  <a href="/portfolio/weddingWebsite.gif"
-                    class="lightbox lazyload"
-                    data-src="/portfolio/weddingWebsite.gif"
-                    title="Wedding Invitation Websites">
-                    <img src="/portfolio/weddingWebsite.gif" alt=""
-                      loading="lazy">
-                    <div>
-                      <h5 class="name">Food Delivery WebSite</h5>
-                      <!-- <small>Media</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 1 -->
+              <!-- Portfolio Item 3 -->
+              <figure class="item" data-groups='["all","node.js"]'
+                data-website="https://canvasapi-codemonk.netlify.app">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/canvaApi.gif" class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/canvaApi.gif" title="Canvas Api">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/canvaApi.gif" alt="" loading="lazy">
+                  <div>
+                    <h5 class="name">Canvas Api</h5>
+                    <!-- <small>Illustration</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 3 -->
 
-                <!-- Portfolio Item 2 -->
-                <figure class="item" data-groups='["all", "node.js"]'
-                  data-website="https://petukji-delivery.vercel.app/">
-                  <a href="/portfolio//petukJi.gif" class="lightbox lazyload"
-                    data-src="/portfolio//petukJi.gif"
-                    title="Petuk.Ji Website">
-                    <img src="/portfolio//petukJi.gif" alt="" loading="lazy">
-                    <div>
-                      <h5 class="name">Petuk.Ji Website</h5>
-                      <!-- <small>Video</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 2 -->
+              <!-- Portfolio Item 4 -->
+              <figure class="item" data-groups='["all", "node.js"]' data-website="https://flyzy-travel.vercel.app/">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/TravelBlog.gif" class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/TravelBlog.gif"
+                  title="Travel Blog Website">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/TravelBlog.gif" alt="" loading="lazy">
+                  <div>
+                    <h5 class="name">Travel Blog Website</h5>
+                    <!-- <small>Media</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 4 -->
 
-                <!-- Portfolio Item 3 -->
-                <figure class="item" data-groups='["all","node.js"]'
-                  data-website="https://canvasapi-codemonk.netlify.app">
-                  <a href="./images//portfolio/canvaApi.gif" class="lightbox lazyload"
-                    data-src="./images//portfolio/canvaApi.gif" title="Canvas Api">
-                    <img src="./images//portfolio/canvaApi.gif" alt="" loading="lazy">
-                    <div>
-                      <h5 class="name">Canvas Api</h5>
-                      <!-- <small>Illustration</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 3 -->
+              <!-- Portfolio Item 5 -->
+              <figure class="item" data-groups='["all", "node.js"]'
+                data-website="https://github.com/Sandy3122/Curd-Api">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/crudApi.gif" class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/crudApi.gif" title="Crud Api">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/crudApi.gif" alt="" loading="lazy">
+                  <div>
+                    <h5 class="name">Crud Api</h5>
+                    <!-- <small>Illustration</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 5 -->
 
-                <!-- Portfolio Item 4 -->
-                <figure class="item" data-groups='["all", "node.js"]' data-website="https://flyzy-travel.vercel.app/">
-                  <a href="/portfolio/TravelBlog.gif"
-                    class="lightbox lazyload"
-                    data-src="/portfolio/TravelBlog.gif"
-                    title="Travel Blog Website">
-                    <img src="/portfolio/TravelBlog.gif" alt=""
-                      loading="lazy">
-                    <div>
-                      <h5 class="name">Travel Blog Website</h5>
-                      <!-- <small>Media</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 4 -->
+              <!-- Portfolio Item 6 -->
+              <figure class="item" data-groups='["all", "javascript"]'
+                data-website="https://githubprofilesearch-app.netlify.app">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/githubProfileSearch.gif"
+                  class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/githubProfileSearch.gif"
+                  title="GitHub Profile Search">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/githubProfileSearch.gif" alt=""
+                    loading="lazy">
+                  <div>
+                    <h5 class="name">GitHub Profile Search</h5>
+                    <!-- <small>Media</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 6 -->
 
-                <!-- Portfolio Item 5 -->
-                <figure class="item" data-groups='["all", "node.js"]'
-                  data-website="https://github.com/Sandy3122/Curd-Api">
-                  <a href="/portfolio/crudApi.gif" class="lightbox lazyload"
-                    data-src="/portfolio/crudApi.gif" title="Crud Api">
-                    <img src="/portfolio/crudApi.gif" alt="" loading="lazy">
-                    <div>
-                      <h5 class="name">Crud Api</h5>
-                      <!-- <small>Illustration</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 5 -->
+              <!-- Portfolio Item 7 -->
+              <figure class="item" data-groups='["all", "node.js"]'
+                data-website="https://happy-3rd-month-anniversary.vercel.app/">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/DraggingPapers.gif"
+                  class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/DraggingPapers.gif"
+                  title="Dragging Papers">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/DraggingPapers.gif" alt=""
+                    loading="lazy">
+                  <div>
+                    <h5 class="name">Dragging Papers</h5>
+                    <!-- <small>Video</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 7 -->
 
-                <!-- Portfolio Item 6 -->
-                <figure class="item" data-groups='["all", "javascript"]'
-                  data-website="https://githubprofilesearch-app.netlify.app">
-                  <a href="/portfolio/githubProfileSearch.gif"
-                    class="lightbox lazyload"
-                    data-src="/portfolio/githubProfileSearch.gif"
-                    title="GitHub Profile Search">
-                    <img src="/portfolio/githubProfileSearch.gif" alt=""
-                      loading="lazy">
-                    <div>
-                      <h5 class="name">GitHub Profile Search</h5>
-                      <!-- <small>Media</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 6 -->
+              <!-- Portfolio Item 8 -->
+              <figure class="item" data-groups='["all",  "node.js"]'
+                data-website="https://github.com/Sandy3122/Nodemailer">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/NodemailerContactForm.gif"
+                  class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/NodemailerContactForm.gif"
+                  title="Nodemailer Contact Form">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/NodemailerContactForm.gif" alt=""
+                    loading="lazy">
+                  <div>
+                    <h5 class="name">Nodemailer Contact Form</h5>
+                    <!-- <small>Media</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 8 -->
 
-                <!-- Portfolio Item 7 -->
-                <figure class="item" data-groups='["all", "node.js"]'
-                  data-website="https://happy-3rd-month-anniversary.vercel.app/">
-                  <a href="/portfolio/DraggingPapers.gif"
-                    class="lightbox lazyload"
-                    data-src="/portfolio/DraggingPapers.gif"
-                    title="Dragging Papers">
-                    <img src="/portfolio/DraggingPapers.gif" alt=""
-                      loading="lazy">
-                    <div>
-                      <h5 class="name">Dragging Papers</h5>
-                      <!-- <small>Video</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 7 -->
+              <!-- Portfolio Item 9 -->
+              <figure class="item" data-groups='["all","bots"]' data-website="https://github.com/Sandy3122/EchoBot">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/echoBot.gif" class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/echoBot.gif" title="Echo Bot">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/echoBot.gif" alt="" loading="lazy">
+                  <div>
+                    <h5 class="name">Echo Bot</h5>
+                    <!-- <small>Illustration</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 9 -->
 
-                <!-- Portfolio Item 8 -->
-                <figure class="item" data-groups='["all",  "node.js"]'
-                  data-website="https://github.com/Sandy3122/Nodemailer">
-                  <a href="/portfolio/NodemailerContactForm.gif"
-                    class="lightbox lazyload"
-                    data-src="/portfolio/NodemailerContactForm.gif"
-                    title="Nodemailer Contact Form">
-                    <img src="/portfolio/NodemailerContactForm.gif" alt=""
-                      loading="lazy">
-                    <div>
-                      <h5 class="name">Nodemailer Contact Form</h5>
-                      <!-- <small>Media</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 8 -->
+              <!-- Portfolio Item 10 -->
+              <figure class="item" data-groups='["all", "bots"]'
+                data-website="https://github.com/Sandy3122/Sick-Leave-Bot">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/sickLeaveBot.gif"
+                  class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/sickLeaveBot.gif"
+                  title="Sick Leave Bot">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/sickLeaveBot.gif" alt=""
+                    loading="lazy">
+                  <div>
+                    <h5 class="name">Sick Leave Bot</h5>
+                    <!-- <small>Video</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 10 -->
 
-                <!-- Portfolio Item 9 -->
-                <figure class="item" data-groups='["all","bots"]' data-website="https://github.com/Sandy3122/EchoBot">
-                  <a href="/portfolio/echoBot.gif" class="lightbox lazyload"
-                    data-src="/portfolio/echoBot.gif" title="Echo Bot">
-                    <img src="/portfolio/echoBot.gif" alt="" loading="lazy">
-                    <div>
-                      <h5 class="name">Echo Bot</h5>
-                      <!-- <small>Illustration</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 9 -->
+              <!-- Portfolio Item 11 -->
+              <figure class="item" data-groups='["all","javascript"]'
+                data-website="https://pomodoro-focus-app.netlify.app">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/pomodoroTimer.gif"
+                  class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/pomodoroTimer.gif"
+                  title="Pomodoro Timer">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/pomodoroTimer.gif" alt=""
+                    loading="lazy">
+                  <div>
+                    <h5 class="name">Project Name</h5>
+                    <!-- <small>Illustration</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 11 -->
 
-                <!-- Portfolio Item 10 -->
-                <figure class="item" data-groups='["all", "bots"]'
-                  data-website="https://github.com/Sandy3122/Sick-Leave-Bot">
-                  <a href="/portfolio/sickLeaveBot.gif"
-                    class="lightbox lazyload"
-                    data-src="/portfolio/sickLeaveBot.gif"
-                    title="Sick Leave Bot">
-                    <img src="/portfolio/sickLeaveBot.gif" alt=""
-                      loading="lazy">
-                    <div>
-                      <h5 class="name">Sick Leave Bot</h5>
-                      <!-- <small>Video</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 10 -->
+              <!-- Portfolio Item 12 -->
+              <figure class="item" data-groups='["all","node.js"]' data-website="https://github.com/Sandy3122/Smakosh">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/foodDelivery.gif"
+                  class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/foodDelivery.gif"
+                  title="Smakosh Food Delivery">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/foodDelivery.gif" alt=""
+                    loading="lazy">
+                  <div>
+                    <h5 class="name">Smakosh Food Delivery</h5>
+                    <!-- <small>Media</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 12 -->
 
-                <!-- Portfolio Item 11 -->
-                <figure class="item" data-groups='["all","javascript"]'
-                  data-website="https://pomodoro-focus-app.netlify.app">
-                  <a href="/portfolio/pomodoroTimer.gif"
-                    class="lightbox lazyload"
-                    data-src="/portfolio/pomodoroTimer.gif"
-                    title="Pomodoro Timer">
-                    <img src="/portfolio/pomodoroTimer.gif" alt=""
-                      loading="lazy">
-                    <div>
-                      <h5 class="name">Project Name</h5>
-                      <!-- <small>Illustration</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 11 -->
+              <!-- Portfolio Item 13 -->
+              <figure class="item" data-groups='["all","javascript"]'
+                data-website="https://app-qrcode-generator.netlify.app">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/qr-code.gif" class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/qr-code.gif" title="QR Code Generator">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/qr-code.gif" alt="" loading="lazy">
+                  <div>
+                    <h5 class="name">QR Code Generator</h5>
+                    <!-- <small>Media</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 13 -->
 
-                <!-- Portfolio Item 12 -->
-                <figure class="item" data-groups='["all","node.js"]'
-                  data-website="https://github.com/Sandy3122/Smakosh">
-                  <a href="/portfolio/foodDelivery.gif"
-                    class="lightbox lazyload"
-                    data-src="/portfolio/foodDelivery.gif"
-                    title="Smakosh Food Delivery">
-                    <img src="/portfolio/foodDelivery.gif" alt=""
-                      loading="lazy">
-                    <div>
-                      <h5 class="name">Smakosh Food Delivery</h5>
-                      <!-- <small>Media</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 12 -->
+              <!-- Portfolio Item 14 -->
+              <figure class="item" data-groups='["all","node.js"]'
+                data-website="https://affection-algorithm.vercel.app/">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/affectionAlgorithm.gif"
+                  class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/affectionAlgorithm.gif"
+                  title="Affection Algorithm">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/affectionAlgorithm.gif" alt=""
+                    loading="lazy">
+                  <div>
+                    <h5 class="name">Affection Algorithm</h5>
+                    <!-- <small>Media</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 14 -->
 
-                <!-- Portfolio Item 13 -->
-                <figure class="item" data-groups='["all","javascript"]'
-                  data-website="https://app-qrcode-generator.netlify.app">
-                  <a href="/portfolio/qr-code.gif" class="lightbox lazyload"
-                    data-src="/portfolio/qr-code.gif"
-                    title="QR Code Generator">
-                    <img src="/portfolio/qr-code.gif" alt="" loading="lazy">
-                    <div>
-                      <h5 class="name">QR Code Generator</h5>
-                      <!-- <small>Media</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 13 -->
+              <!-- Portfolio Item 15 -->
+              <figure class="item" data-groups='["all","javascript"]'
+                data-website="https://happy-raksha-bandhan-three.vercel.app/">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/rakshaBandhan-app.gif"
+                  class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/rakshaBandhan-app.gif"
+                  title="Raksha Bandhan Wishes">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/rakshaBandhan-app.gif" alt=""
+                    loading="lazy">
+                  <div>
+                    <h5 class="name">Raksha Bandhan Wishes</h5>
+                    <!-- <small>Media</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 15 -->
 
-                <!-- Portfolio Item 14 -->
-                <figure class="item" data-groups='["all","node.js"]'
-                  data-website="https://affection-algorithm.vercel.app/">
-                  <a href="/portfolio/affectionAlgorithm.gif"
-                    class="lightbox lazyload"
-                    data-src="/portfolio/affectionAlgorithm.gif"
-                    title="Affection Algorithm">
-                    <img src="/portfolio/affectionAlgorithm.gif" alt=""
-                      loading="lazy">
-                    <div>
-                      <h5 class="name">Affection Algorithm</h5>
-                      <!-- <small>Media</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 14 -->
-
-                <!-- Portfolio Item 15 -->
-                <figure class="item" data-groups='["all","javascript"]'
-                  data-website="https://happy-raksha-bandhan-three.vercel.app/">
-                  <a href="/portfolio/rakshaBandhan-app.gif"
-                    class="lightbox lazyload"
-                    data-src="/portfolio/rakshaBandhan-app.gif"
-                    title="Raksha Bandhan Wishes">
-                    <img src="/portfolio/rakshaBandhan-app.gif" alt=""
-                      loading="lazy">
-                    <div>
-                      <h5 class="name">Raksha Bandhan Wishes</h5>
-                      <!-- <small>Media</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 15 -->
-
-                <!-- Portfolio Item 16 -->
-                <figure class="item" data-groups='["all","node.js"]'
-                  data-website="https://github.com/Sandy3122/Dictionary-App">
-                  <a href="/portfolio/dictionary-app.gif"
-                    class="lightbox lazyload"
-                    data-src="/portfolio/dictionary-app.gif"
-                    title="Dictionary App">
-                    <img src="/portfolio/dictionary-app.gif" alt=""
-                      loading="lazy">
-                    <div>
-                      <h5 class="name">Dictionary App</h5>
-                      <!-- <small>Media</small> -->
-                      <i class="fa fa-link"></i>
-                    </div>
-                  </a>
-                </figure>
-                <!-- /Portfolio Item 16 -->
-              </div>
-              <!-- /Portfolio Grid -->
-
+              <!-- Portfolio Item 16 -->
+              <figure class="item" data-groups='["all","node.js"]'
+                data-website="https://github.com/Sandy3122/Dictionary-App">
+                <a href="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/dictionary-app.gif"
+                  class="lightbox lazyload"
+                  data-src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/dictionary-app.gif"
+                  title="Dictionary App">
+                  <img src="https://testinomial-gifs.s3.ap-south-1.amazonaws.com/dictionary-app.gif" alt=""
+                    loading="lazy">
+                  <div>
+                    <h5 class="name">Dictionary App</h5>
+                    <!-- <small>Media</small> -->
+                    <i class="fa fa-link"></i>
+                  </div>
+                </a>
+              </figure>
+              <!-- /Portfolio Item 16 -->
             </div>
-            <!-- /Portfolio Content -->
+            <!-- /Portfolio Grid -->
 
           </section>
           <!-- /Portfolio Subpage -->
@@ -1025,5 +999,3 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.0/lazysizes.min.js"></script>
 
 </html>
-
-
